@@ -32,5 +32,7 @@ Route::get(
     [LifeCycleTestController::class, 'showServiceContainerTest']
 );
 
+Route::get("/serviceprovidertest", [LifeCycleTestController::class, "showServiceProviderTest"]);
+
 
 require __DIR__ . '/auth.php';
