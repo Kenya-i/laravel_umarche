@@ -14,6 +14,7 @@ use App\Models\Stock;
 use Throwable;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\ProductRequest;
+use PHPUnit\TextUI\XmlConfiguration\Constant;
 
 class ProductController extends Controller
 {
@@ -166,10 +167,10 @@ class ProductController extends Controller
 
                     $product->save();
 
-                    if ($request->type === '1') {
+                    if ($request->type === \Constant::PRODUCT_LIST['add']) {
                         $newQuantity = $request->quantity;
                     }
-                    if ($request->type === '2') {
+                    if ($request->type === \Constant::PRODUCT_LIST['reduce']) {
                         $newQuantity = $request->quantity * -1;
                     }
 
