@@ -8,6 +8,8 @@ use App\Models\Shop;
 use App\Models\SecondaryCategory;
 use App\Models\Image;
 use App\Models\Stock;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Product extends Model
 {
@@ -60,5 +62,11 @@ class Product extends Model
     public function stock()
     {
         return $this->hasMany(Stock::class);
+    }
+
+    public function users()
+    {
+        return BelongsToMany(User::class, 'carts')
+            ->withPivot(['id', 'quantity']);
     }
 }
